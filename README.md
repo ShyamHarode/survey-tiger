@@ -1,2 +1,2 @@
 # survey-tiger
-Created with CodeSandbox
+Tech stack used- React
