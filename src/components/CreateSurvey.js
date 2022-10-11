@@ -6,12 +6,10 @@ import { useNavigate } from "react-router";
 
 const CreateSurvey = ({ squestions, setSquestions }) => {
   const history = useNavigate();
-  const getRandom = () => {
-    return Math.floor(Math.random() * 1000 + 1);
-  };
+
   const defaultOptionsState = [
-    { uid: getRandom(), value: "" },
-    { uid: getRandom(), value: "" }
+    { uid: Date.now(), value: "" },
+    { uid: Date.now(), value: "" }
   ];
   const [qText, setQtext] = useState("");
   const [qType, setQtype] = useState(0);
@@ -19,7 +17,7 @@ const CreateSurvey = ({ squestions, setSquestions }) => {
 
   const addOptions = () => {
     let newOption = {
-      uid: getRandom(),
+      uid: Date.now(),
       value: ""
     };
     let updatedOptions = [...options];
@@ -51,7 +49,11 @@ const CreateSurvey = ({ squestions, setSquestions }) => {
       qtype: qType,
       options: options
     };
-    newSurveyQuestion.push(newQ);
+    if (qText !== "" && options[0].value !== "" && options[1].value !== "") {
+      newSurveyQuestion.push(newQ);
+    } else {
+      alert("Please fill all the fields");
+    }
     setSquestions(newSurveyQuestion);
     setQtype(0);
     setQtext("");
