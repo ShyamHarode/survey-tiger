@@ -11,7 +11,7 @@ const Published = ({ questions }) => {
             <div className="row">
               <div className="col-lg-8 col-md-6 text-start">
                 <h3 className="my-3">
-                  {key}) {q.qtext}
+                  {key+1}) {q.qtext}
                 </h3>
               </div>
               <div className="col-lg-4 col-md-6 text-start d-flex">
