@@ -9,7 +9,7 @@ const CreateSurvey = ({ squestions, setSquestions }) => {
 
   const defaultOptionsState = [
     { uid: Date.now(), value: "" },
-    { uid: Date.now(), value: "" }
+    { uid: Date.now() + 1, value: "" }
   ];
   const [qText, setQtext] = useState("");
   const [qType, setQtype] = useState(0);
@@ -49,10 +49,10 @@ const CreateSurvey = ({ squestions, setSquestions }) => {
       qtype: qType,
       options: options
     };
-    if (qText !== "" && options[0].value !== "" && options[1].value !== "") {
-      newSurveyQuestion.push(newQ);
-    } else {
+    if (qText === "" || options[0].value === "" || options[1].value === "") {
       alert("Please fill all the fields");
+    } else {
+      newSurveyQuestion.push(newQ);
     }
     setSquestions(newSurveyQuestion);
     setQtype(0);
