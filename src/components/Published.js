@@ -14,7 +14,7 @@ const Published = ({ questions }) => {
                   {key+1}) {q.qtext}
                 </h3>
               </div>
-              <div className="col-lg-4 col-md-6 text-start d-flex">
+              <div className="col-lg-4 col-md-6 text-start d-flex align-items-center">
                 {q.options.map((opt) =>
                   q.qtype === 1 ? (
                     <div className="form-check ms-3" key={opt.uid}>
